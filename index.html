@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ledger — Money Calculators That Actually Show You What's Ahead</title>
+  <meta name="description" content="Free mortgage, debt payoff, retirement, budget, and AI cost calculators. No sign-up, no fluff — just the number you came for.">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Fraunces:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="wordmark"><span class="the">the</span>Ledger</div>
+    <div class="masthead-date" id="todayDate">July 3, 2026</div>
+  </div>
+  <p class="masthead-sub">Free calculators for the real decisions — loans, retirement, debt, budgets. No sign-up. The math runs in your browser.</p>
+</header>
+
+<div class="ad-slot"><div class="ad-slot-inner">Ad Slot — 728×90 — Insert AdSense / affiliate banner here</div></div>
+
+<div class="layout">
+  <nav class="index" id="navIndex">
+    <div class="index-label">Index</div>
+    <button data-tool="mortgage" class="active">Mortgage Payment <span class="num">01</span></button>
+    <button data-tool="retirement" class="">Retirement Growth <span class="num">02</span></button>
+    <button data-tool="debt" class="">Debt Payoff <span class="num">03</span></button>
+    <button data-tool="budget" class="">50/30/20 Budget <span class="num">04</span></button>
+    <button data-tool="aitoken" class="">AI Token Cost <span class="num">05</span></button>
+  </nav>
+
+  <main>
+
+    <!-- 01 MORTGAGE -->
+    <section class="tool active" id="tool-mortgage">
+      <div class="tool-eyebrow">01 — Housing</div>
+      <h2 class="tool-title">Mortgage Payment Calculator</h2>
+      <p class="tool-desc">Standard amortization. Punch in the loan and see the monthly principal &amp; interest, plus what you'll pay in total interest over the life of the loan.</p>
+      <div class="field-grid">
+        <div class="field-wrap">
+          <label class="field">Home Price ($)</label>
+          <input type="number" id="m-price" value="400000" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Down Payment ($)</label>
+          <input type="number" id="m-down" value="80000" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Interest Rate (% APR)</label>
+          <input type="number" id="m-rate" value="6.36" step="0.01" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Term (years)</label>
+          <input type="number" id="m-term" value="30" min="1">
+        </div>
+      </div>
+      <div class="result" id="m-result">
+        <div class="result-item primary">
+          <div class="r-label">Monthly Payment (P&amp;I)</div>
+          <div class="r-value">$1,993.25</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Loan Amount</div>
+          <div class="r-value">$320,000</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Total Interest Paid</div>
+          <div class="r-value">$397,568</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Total of All Payments</div>
+          <div class="r-value">$717,568</div>
+        </div>
+      </div>
+      <p class="note">Estimate only — excludes property tax, insurance, and PMI. Verify with your lender.</p>
+    </section>
+
+    <!-- 02 RETIREMENT -->
+    <section class="tool" id="tool-retirement">
+      <div class="tool-eyebrow">02 — Investing</div>
+      <h2 class="tool-title">Retirement / Compound Growth Calculator</h2>
+      <p class="tool-desc">Project the future value of your savings with monthly compounding and ongoing contributions.</p>
+      <div class="field-grid">
+        <div class="field-wrap">
+          <label class="field">Current Savings ($)</label>
+          <input type="number" id="r-principal" value="25000" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Monthly Contribution ($)</label>
+          <input type="number" id="r-monthly" value="500" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Annual Return (%)</label>
+          <input type="number" id="r-return" value="7" step="0.1" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Years to Grow</label>
+          <input type="number" id="r-years" value="20" min="1">
+        </div>
+      </div>
+      <div class="result" id="r-result">
+        <div class="result-item primary">
+          <div class="r-label">Future Value</div>
+          <div class="r-value">$361,432</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Total Contributed</div>
+          <div class="r-value">$145,000</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Growth Earned</div>
+          <div class="r-value">$216,432</div>
+        </div>
+      </div>
+      <p class="note">Assumes consistent contributions and a flat average annual return — real markets vary year to year.</p>
+    </section>
+
+    <!-- 03 DEBT PAYOFF -->
+    <section class="tool" id="tool-debt">
+      <div class="tool-eyebrow">03 — Debt</div>
+      <h2 class="tool-title">Debt Payoff Calculator</h2>
+      <p class="tool-desc">See how long a balance takes to clear at a fixed monthly payment, and what interest costs you along the way.</p>
+      <div class="field-grid">
+        <div class="field-wrap">
+          <label class="field">Balance ($)</label>
+          <input type="number" id="d-balance" value="8000" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Interest Rate (% APR)</label>
+          <input type="number" id="d-rate" value="21.5" step="0.1" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Monthly Payment ($)</label>
+          <input type="number" id="d-payment" value="300" min="1">
+        </div>
+      </div>
+      <div class="result" id="d-result">
+        <div class="result-item primary">
+          <div class="r-label">Time to Payoff</div>
+          <div class="r-value">3y 1m</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Total Interest Paid</div>
+          <div class="r-value">$2,976</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Total Paid</div>
+          <div class="r-value">$10,976</div>
+        </div>
+      </div>
+      <p class="note">If the payment doesn't cover monthly interest, the balance won't shrink — the tool will flag that.</p>
+    </section>
+
+    <!-- 04 BUDGET -->
+    <section class="tool" id="tool-budget">
+      <div class="tool-eyebrow">04 — Budgeting</div>
+      <h2 class="tool-title">50/30/20 Budget Calculator</h2>
+      <p class="tool-desc">Split take-home pay into needs, wants, and savings using the classic rule of thumb.</p>
+      <div class="field-grid">
+        <div class="field-wrap">
+          <label class="field">Monthly Take-Home Pay ($)</label>
+          <input type="number" id="b-income" value="5200" min="0">
+        </div>
+      </div>
+      <div class="result" id="b-result">
+        <div class="result-item primary">
+          <div class="r-label">Needs (50%)</div>
+          <div class="r-value">$2,600</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Wants (30%)</div>
+          <div class="r-value">$1,560</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Savings &amp; Debt (20%)</div>
+          <div class="r-value">$1,040</div>
+        </div>
+      </div>
+      <p class="note">Guideline, not a rule — adjust splits to fit your city and stage of life.</p>
+    </section>
+
+    <!-- 05 AI TOKEN COST -->
+    <section class="tool" id="tool-aitoken">
+      <div class="tool-eyebrow">05 — AI Costs</div>
+      <h2 class="tool-title">AI Token Cost Calculator</h2>
+      <p class="tool-desc">Estimate what an LLM API call or monthly workload will cost before you run it.</p>
+      <div class="field-grid">
+        <div class="field-wrap">
+          <label class="field">Input Tokens (per call)</label>
+          <input type="number" id="a-input" value="2000" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Output Tokens (per call)</label>
+          <input type="number" id="a-output" value="500" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Price per 1M Input ($)</label>
+          <input type="number" id="a-inprice" value="3.00" step="0.01" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Price per 1M Output ($)</label>
+          <input type="number" id="a-outprice" value="15.00" step="0.01" min="0">
+        </div>
+        <div class="field-wrap">
+          <label class="field">Calls per Month</label>
+          <input type="number" id="a-calls" value="10000" min="0">
+        </div>
+      </div>
+      <div class="result" id="a-result">
+        <div class="result-item primary">
+          <div class="r-label">Cost per Call</div>
+          <div class="r-value">$0.01</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Monthly Cost</div>
+          <div class="r-value">$135.00</div>
+        </div>
+        <div class="result-item ">
+          <div class="r-label">Annual Cost</div>
+          <div class="r-value">$1,620.00</div>
+        </div>
+      </div>
+      <p class="note">Check current provider pricing pages — rates change often. This tool does the arithmetic, not the lookup.</p>
+    </section>
+
+  </main>
+</div>
+
+<div class="ad-slot"><div class="ad-slot-inner">Ad Slot — 300×250 — Insert in-content banner here</div></div>
+
+<footer>
+  THE LEDGER — Free calculators, no sign-up, math runs client-side. Estimates only, not financial advice.
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
